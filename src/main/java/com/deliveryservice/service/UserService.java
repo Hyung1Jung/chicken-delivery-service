@@ -24,7 +24,7 @@ public class UserService {
         emailDuplicateCheck(userDto.getEmail());
         String encodePassword = passwordEncoder.encode(userDto.getPassword());
         userDto.setPassword(encodePassword);
-        userRepository.save(userDto.toEntity());
+        userRepository.save(userDto.toUserEntity());
     }
 
     public void emailDuplicateCheck(String email) {
