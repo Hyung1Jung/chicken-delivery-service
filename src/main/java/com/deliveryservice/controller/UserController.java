@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
+@RestController
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/users")
