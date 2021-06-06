@@ -27,6 +27,13 @@ public class UserService {
         userRepository.save(userDto.toUserEntity());
     }
 
+    public void saveUser2(UserDto userDto) {
+        emailDuplicateCheck(userDto.getEmail());
+        String encodePassword = passwordEncoder.encode(userDto.getPassword());
+        userDto.setPassword(encodePassword);
+        userRepository.save(userDto.toUserEntity());
+    }
+
     public void emailDuplicateCheck(String email) {
         if (userRepository.existsByEmail(email)) {
             throw new EmailDuplicateException();
